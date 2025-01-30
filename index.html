@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Actividad 7. Modelo OSI y protocolos</title>
+</head>
+<body>
+    <header></header>
+    <section id="seccion1">
+        <div class="cont">
+            <div class="tma-pa">
+                <h1>MODELO OSI Y ESQUEMA TCP/IP</h1>
+                <p>Soluciones de proveedores de servicios de nube como AWS</p>
+                <a href="#seccion2">VISITAR</a>
+            </div>
+        </div>
+    </section>
+    <section id="seccion2">
+        <div class="centrado">
+            <img src="img/Modelo OSI.png" class="imgOsi" width="900">
+            <h1 class="h1">Modelo OSI</h1>
+            <div class="pa">
+                <h2>1. Capa Física:</h2>
+                <li>Mecanismos: Controlan el acceso físico a los medios (cables, switches, etc.).</li>
+                <li>Protocolos de seguridad: Ninguno directamente en esta capa, pero se asegura con medidas como seguridad física en centros de datos.</li>
+                <li>Servicios: Control de acceso a equipos y monitoreo físico.</li>
+            </div>
+            <div class="pa">
+                <h2>2. Capa de Enlace de Datos:</h2>
+                <li>Mecanismos: MAC (Media Access Control).</li>
+                <li>Protocolos de seguridad: 802.1X (autenticación de dispositivos), VLANs.</li>
+                <li>Servicios: Evita ataques de red como ARP spoofing</li>
+                <li>Ejemplo en AWS: Seguridad a nivel de subredes en VPC (Virtual Private Cloud).</li>
+            </div>
+            <div class="pa">
+                <h2>3. Capa de Red:</h2>
+                <li>Mecanismos: Gestión de direccionamiento y enrutamiento.</li>
+                <li>Protocolos de seguridad: IPSec, GRE, NAT.</li>
+                <li>Servicios: Protege la integridad de los datos durante el enrutamiento.</li>
+                <li>Ejemplo en AWS: Gateways de VPN, control de rutas en VPC.</li>
+            </div>
+            <div class="pa">
+                <h2>4. Capa de Transporte:</h2>
+                <li>Mecanismos: Gestión de sesiones, confiabilidad de la transmisión.</li>
+                <li>Protocolos de seguridad: TLS/SSL, DTLS.</li>
+                <li>Servicios: Encriptación extremo a extremo, prevención de ataques MITM (Man-In-The-Middle).</li>
+                <li>Ejemplo en AWS: Certificados TLS en AWS Certificate Manager (ACM).</li>
+            </div>
+            <div class="pa">
+                <h2>5. Capa de Sesión:</h2>
+                <li>Mecanismos: Gestión de sesiones de aplicaciones.</li>
+                <li>Protocolos de seguridad: SMB Signing, TLS Handshake.</li>
+                <li>Servicios: Protege sesiones activas contra intercepción o secuestro.</li>
+                <li>Ejemplo en AWS: Manejo de sesiones para servicios como AWS SSO (Single Sign-On).</li>
+            </div>
+            <div class="pa">
+                <h2>6. Capa de Presentación:</h2>
+                <li>Mecanismos: Transformación y encriptación de datos.</li>
+                <li>Protocolos de seguridad: AES, RSA, DES.</li>
+                <li>Servicios: Proporciona confidencialidad y formatos de datos seguros.</li>
+                <li>Ejemplo en AWS: Servicios de cifrado en tránsito y en reposo, como AWS KMS (Key Management Service)./li>
+            </div>
+            <div class="pa">
+                <h2>7. Capa de Aplicación:</h2>
+                <li>Mecanismos: Interacción usuario-aplicación.</li>
+                <li>Protocolos de seguridad: HTTPS, OAuth, SAML.</li>
+                <li>Servicios: Autenticación, autorización, auditorías.</li>
+                <li>Ejemplo en AWS: Autenticación en AWS Cognito, monitoreo con AWS CloudTrail.</li>
+            </div>
+        </div>
+    </section>
+    <section id="seccion3">
+        <div class="tema">
+            <h2 class="tm">Comparación con el Modelo TCP/IP</h2>
+            <p class="sub">El modelo TCP/IP tiene menos capas (4), pero mapea directamente a las funciones del OSI</p>
+        </div>
+        <table>
+            <thead>
+              <tr>
+                <th>Modelo OSI</th>
+                <th>Modelo TCP/IP</th>
+                <th>Protocolos de Seguridad</th>
+                <th>Ejemplo en AWS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aplicación (7, 6, 5)</td>
+                <td>Aplicación</td>
+                <td>HTTPS, OAuth, SAML, DNSSEC</td>
+                <td>AWS IAM, Cognito, ACM</td>
+              </tr>
+              <tr>
+                <td>Transporte (4)</td>
+                <td>Transporte</td>
+                <td>TLS, DTLS</td>
+                <td>TLS en servicios ELB (Elastic Load Balancing)</td>
+              </tr>
+              <tr>
+                <td>Red (3)</td>
+                <td>Internet</td>
+                <td>IPSec, GRE</td>
+                <td>AWS VPN, Security Groups en VPC</td>
+              </tr>
+              <tr>
+                <td>Enlace de datos y Física (2, 1)</td>
+                <td>Acceso a Red</td>
+                <td>802.1X, VLANs, PPP</td>
+                <td>Seguridad física en centros de datos, Direct Connect</td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+    <section id="seccion4">
+        <div class="tabla">
+            <div class="parent">
+                <div class="div1">
+                    <h1 class="h">Soluciones en Proveedores de Nube (AWS)</h1>
+                    <div class="p">
+                        <h2 class="tema2">1. Protocolos de Seguridad en AWS</h2>
+                        <li>TLS/SSL: Para proteger aplicaciones web mediante CloudFront y ACM.</li>
+                        <li>IPSec: Usado en túneles VPN de Site-to-Site.</li>
+                        <li>OAuth y SAML: En integración con servicios de autenticación federada.</li>
+                        <li>DNSSEC: Implementado en Route 53 para proteger la resolución DNS.</li>
+                    </div>
+                </div>
+                <div class="div2">
+                    <img src="img/aws.jpg" width="350px">
+                </div>
+                </div>
+        </div>
+    </section>
+</body>
+</html>
